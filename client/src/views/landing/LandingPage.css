@@ -1,0 +1,45 @@
+/* LandingPage.css */
+
+/* Establece un fondo de pantalla completa solo para LandingPage */
+.landing-page {
+  height: 100vh;
+  background-image: url("https://i.blogs.es/ee27d6/nasa-q1p7bh3shj8-unsplash/1366_2000.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente blanco */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.landing-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #007bff; /* Color azul para el título */
+}
+
+.landing-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333; /* Color de texto principal */
+}
+
+.landing-content button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.landing-content button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}

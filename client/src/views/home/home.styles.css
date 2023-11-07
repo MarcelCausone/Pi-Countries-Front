@@ -1,0 +1,48 @@
+/* home.styles.css */
+.home-container {
+  text-align: center;
+  margin: 0 auto;
+
+  padding: 164px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://i.blogs.es/ee27d6/nasa-q1p7bh3shj8-unsplash/1366_2000.jpg");
+  max-width: max-content;
+  margin: 0 auto;
+}
+
+.home-title {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px;
+}
+
+.sort-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-filter select {
+  padding: 5px;
+}
+
+.sort-filter button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.continent-filter select {
+  padding: 5px;
+}

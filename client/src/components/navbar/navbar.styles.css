@@ -1,0 +1,42 @@
+/* En tu archivo navbar.styles.css */
+.navbar-container {
+  background-color: #333; /* Color de fondo del navbar */
+  padding: 9px; /* Espaciado interno del navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px; /* Espacio entre los enlaces en el navbar */
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #fff; /* Color del texto de los enlaces */
+  font-weight: 600;
+}
+
+.search-form {
+  display: flex;
+  gap: 7px; /* Espacio entre el campo de búsqueda y el botón */
+}
+
+.search-input {
+  padding: 5px; /* Espaciado interno del campo de búsqueda */
+  border: 1px solid #ccc; /* Borde del campo de búsqueda */
+  border-radius: 5px; /* Borde redondeado */
+}
+
+.search-button {
+  padding: 5px 10px; /* Espaciado interno del botón */
+  background-color: #007bff; /* Color de fondo del botón de búsqueda */
+  color: #fff; /* Color del texto del botón de búsqueda */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer;
+}
+
+/* Puedes ajustar estos estilos según tus preferencias */

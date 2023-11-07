@@ -1,0 +1,45 @@
+/* card.styles.css */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7px;
+  background: linear-gradient(
+    to bottom,
+    #0a0658,
+    #000
+  ); /* Degradado de azul oscuro a negro */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  width: 200px;
+  height: 295px;
+  margin: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff; /* Cambia el color del texto a blanco o el color deseado */
+}
+
+.card-container:hover {
+  transform: scale(1.05); /* Escala ligeramente en el hover */
+}
+
+.card-container a {
+  text-decoration: none;
+}
+
+.card-container img {
+  max-width: 200px; /* Tamaño máximo de la bandera */
+  margin: 1px 0;
+}
+
+.card-container h2 {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Puedes ajustar los estilos según tus preferencias */

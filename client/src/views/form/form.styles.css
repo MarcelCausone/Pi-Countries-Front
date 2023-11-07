@@ -1,0 +1,82 @@
+/* form.styles.css */
+
+/* Estilos para el contenedor principal del formulario */
+.form-container {
+  display: flex; /* Usar display: flex para colocar elementos en una fila */
+  /* Permite que los elementos se envuelvan a la siguiente línea cuando no caben */
+
+  padding: 50px;
+  background-color: #f5f5f5;
+  border: 5px solid #ccc;
+  border-radius: 7px;
+}
+
+/* Estilos para los encabezados */
+.form-title {
+  color: #555;
+}
+
+/* Estilos para los campos de entrada y etiquetas */
+.form-label {
+  font-weight: bold;
+  color: #333;
+  display: grid;
+}
+
+.form-input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 40px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+/* Estilos para los botones */
+.form-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para la lista de países seleccionados */
+.selected-countries {
+  font-weight: bold;
+  color: #555; /* Cambia el color de texto a tu preferencia */
+  /* Agrega un margen izquierdo para separar de los campos de entrada */
+
+  margin: 29px;
+}
+/* Estilos para los mensajes de éxito y error */
+.success-message {
+  color: green;
+  font-size: 16px;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+}
+
+.selected-countries ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Haz que ocupe todo el ancho disponible */
+  text-align: center;
+}
