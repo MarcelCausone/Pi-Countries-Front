@@ -7,13 +7,13 @@ import "./detail.styles.css";
 const Detail = () => {
   const dispatch = useDispatch();
   const allCountriesDetail = useSelector((state) => state.allCountriesDetail);
+
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getCountriesByID(id));
     return () => dispatch(cleanDetail());
   }, [dispatch, id]);
-
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -34,6 +34,15 @@ const Detail = () => {
         <h2>Área: {allCountriesDetail?.area} </h2>
         <h2>Población: {allCountriesDetail?.population} habitantes</h2>
         <h2>Subregión: {allCountriesDetail?.subregion}</h2>
+        <h2>Actividades:</h2>
+        <ul>
+          {allCountriesDetail?.Activities?.map((activity) => (
+            <li key={activity.id}>
+              {activity.nombre} (Dificultad: {activity.dificultad}, Duración:{" "}
+              {activity.duracion} hs, Temporada: {activity.temporada})
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

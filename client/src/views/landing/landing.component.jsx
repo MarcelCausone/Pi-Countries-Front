@@ -4,7 +4,7 @@ import "./LandingPage.css"; // Importa tu archivo CSS para estilos específicos 
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <div>
       <div className="landing-content">
         <Link to="/home">
           <button>Ingresar</button>

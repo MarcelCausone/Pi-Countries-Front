@@ -4,22 +4,32 @@
 .form-container {
   display: flex; /* Usar display: flex para colocar elementos en una fila */
   /* Permite que los elementos se envuelvan a la siguiente línea cuando no caben */
-
-  padding: 50px;
-  background-color: #f5f5f5;
-  border: 5px solid #ccc;
-  border-radius: 7px;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://i.blogs.es/ee27d6/nasa-q1p7bh3shj8-unsplash/1366_2000.jpg");
 }
 
-/* Estilos para los encabezados */
-.form-title {
-  color: #555;
+.form-section {
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+}
+
+.header {
+  position: absolute; /* Posición absoluta en relación al contenedor padre */
+  top: 0; /* Coloca el elemento en la parte superior del contenedor */
+  left: 0; /* Coloca el elemento en la parte izquierda del contenedor */
+  transform: translate(0, 0);
 }
 
 /* Estilos para los campos de entrada y etiquetas */
 .form-label {
   font-weight: bold;
-  color: #333;
+  color: mintcream;
   display: grid;
 }
 
@@ -33,20 +43,15 @@
 }
 
 /* Estilos para los mensajes de error */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: -10px;
-  margin-bottom: 15px;
-}
 
 /* Estilos para los botones */
 .form-button {
   background-color: #007bff;
   color: #fff;
-  border: none;
+  margin: 2%;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
 }
 
 .form-button:disabled {
@@ -57,20 +62,27 @@
 /* Estilos para la lista de países seleccionados */
 .selected-countries {
   font-weight: bold;
-  color: #555; /* Cambia el color de texto a tu preferencia */
+  color: mintcream;
   /* Agrega un margen izquierdo para separar de los campos de entrada */
-
-  margin: 29px;
 }
 /* Estilos para los mensajes de éxito y error */
 .success-message {
-  color: green;
-  font-size: 16px;
+  color: #4caf50; /* Cambia el color a verde */
+  font-size: 24px; /* Aumenta el tamaño de fuente */
+  font-weight: bold; /* Hace el texto en negrita */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin: 10px 0; /* Agrega un espacio superior e inferior para separar el mensaje */
+  padding: 10px; /* Agrega espacio interno para un aspecto más limpio */
+  background-color: #dff0d8; /* Agrega un fondo de color verde claro */
+  border: 1px solid #4caf50; /* Agrega un borde alrededor del mensaje */
+  border-radius: 5px; /* Hace que los bordes sean redondeados */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); /* Agrega una sombra suave al mensaje */
 }
-
 .error-message {
   color: red;
-  font-size: 16px;
+  font-size: 14px;
+  margin-top: -28px;
+  margin-bottom: 15px;
 }
 
 .selected-countries ul {
@@ -79,4 +91,14 @@
   margin: 0;
   width: 100%; /* Haz que ocupe todo el ancho disponible */
   text-align: center;
+}
+
+/* Estilos para el campo de selección de países */
+.form-input-paises {
+  width: 100%; /* Haz que el campo ocupe todo el ancho disponible */
+  height: 140px; /* Aumenta la altura para mostrar más países sin desplazamiento */
+  padding: 10px;
+  margin-bottom: 20px; /* Puedes ajustar el margen según tus preferencias */
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }

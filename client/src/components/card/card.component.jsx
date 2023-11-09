@@ -9,9 +9,9 @@ function Card({ flagImage, name, continent, ID }) {
     <div className="card-container">
       <Link to={`/home/${ID}`}>
         <img src={flagImage} alt={name} />
+        <h2>{name}</h2>
+        <h2>{cleanContinent}</h2>
       </Link>
-      <h2>{name}</h2>
-      <h2>{cleanContinent}</h2>
     </div>
   );
 }

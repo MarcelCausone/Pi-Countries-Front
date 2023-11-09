@@ -8,9 +8,6 @@ const Navbar = ({ handleChange, handleSubmit }) => {
         <Link to="/form" className="navbar-link">
           Crear actividad
         </Link>
-        <Link to="/" className="navbar-link">
-          Landing page
-        </Link>
       </div>
       <form onSubmit={handleSubmit} className="search-form">
         <input

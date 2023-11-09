@@ -7,10 +7,8 @@ export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const FILTER = "FILTER";
 export const RESET = "RESET";
 export const SORT = "SORT";
-export const FILTER_ACTIVITY = "FILTER_ACTIVITY";
-export const ADD_ACTIVITY_TO_COUNTRY = "ADD_ACTIVITY_TO_COUNTRY";
-export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
+export const ACTIVITY_FILTER = "ACTIVITY_FILTER";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -104,17 +102,10 @@ export function filterByContinent(continent) {
   };
 }
 
-export function addActivityToCountry(countryId, activityId) {
+export function filterByActivity(activity) {
   return {
-    type: ADD_ACTIVITY_TO_COUNTRY,
-    payload: { countryId, activityId },
-  };
-}
-
-export function filterByActivity(activityId) {
-  return {
-    type: FILTER_BY_ACTIVITY,
-    payload: activityId,
+    type: ACTIVITY_FILTER,
+    payload: activity,
   };
 }
 

@@ -6,9 +6,8 @@ import {
   FILTER,
   RESET,
   SORT,
-  ADD_ACTIVITY_TO_COUNTRY,
-  FILTER_BY_ACTIVITY,
   GET_ACTIVITIES,
+  ACTIVITY_FILTER,
 } from "../actions";
 
 let initialState = {
@@ -16,7 +15,6 @@ let initialState = {
   allCountriesCopy: [],
   allCountriesDetail: {},
   activities: [],
-  countriesActivities: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -30,7 +28,7 @@ function rootReducer(state = initialState, action) {
     case GET_ACTIVITIES:
       return {
         ...state,
-        activities: [...state.activities, action.payload],
+        activities: action.payload,
       };
 
     case GET_BY_NAME:
@@ -56,31 +54,6 @@ function rootReducer(state = initialState, action) {
         activities: [...state.activities, action.payload],
       };
 
-    case ADD_ACTIVITY_TO_COUNTRY: // agregar actividad a un país
-      const { countryId, activity } = action.payload;
-
-      return {
-        ...state,
-        countriesActivities: {
-          ...state.countriesActivities,
-          [countryId]: [
-            ...(state.countriesActivities[countryId] || []),
-            activity,
-          ],
-        },
-      };
-
-    case FILTER_BY_ACTIVITY: //  filtrar por actividad
-      const selectedActivity = action.payload;
-      const filteredCountries = state.allCountries.filter((country) =>
-        state.countriesActivities[country.ID]?.includes(selectedActivity)
-      );
-
-      return {
-        ...state,
-        allCountries: filteredCountries,
-      };
-
     case FILTER:
       return {
         ...state,
@@ -89,11 +62,16 @@ function rootReducer(state = initialState, action) {
         ),
       };
 
-    case RESET:
+    case ACTIVITY_FILTER:
       return {
         ...state,
-        allCountries: state.allCountriesCopy,
+        allCountries: state.allCountriesCopy.filter((country) =>
+          country.Activities.find(
+            (activity) => activity.nombre === action.payload
+          )
+        ),
       };
+
     case SORT:
       const sortedCountries = [...state.allCountries]; // Copia de la matriz de países
       const { order, field } = action.payload;
@@ -115,6 +93,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         allCountries: sortedCountries,
       };
+
+    case RESET:
+      return {
+        ...state,
+        allCountries: state.allCountriesCopy,
+      };
+
     default:
       return { ...state };
   }

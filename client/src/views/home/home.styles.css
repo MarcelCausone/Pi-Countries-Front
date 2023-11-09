@@ -1,14 +1,12 @@
 /* home.styles.css */
 .home-container {
   text-align: center;
-  margin: 0 auto;
 
   padding: 164px;
   background-size: cover;
   background-position: center;
   background-image: url("https://i.blogs.es/ee27d6/nasa-q1p7bh3shj8-unsplash/1366_2000.jpg");
   max-width: max-content;
-  margin: 0 auto;
 }
 
 .home-title {

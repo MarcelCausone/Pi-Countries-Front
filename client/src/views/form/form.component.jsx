@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import "./form.styles.css";
 
+//INICIALIZACIÓN DE ESTADOS
+
 const Form = () => {
   const initialErrors = {
     nombre: "",
@@ -24,28 +26,29 @@ const Form = () => {
     temporada: "",
     paises: [],
   });
+  //---------------------------------------------------------------
+
+  //MANEJO DE CAMBIOS DE ENTRADA
 
   const [countryList, setCountryList] = useState([]);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Lista de países con nombres e IDs
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+    //para seleccionar mas de un pais por actvidad
     if (name === "paises") {
-      // Si el campo es "paises", verifica si el país ya está en la lista
+      // Si el campo es "paises", verifica si el país ya fue seleccionado
       const selectedCountry = countryList.find(
         (country) => country.name === value
       );
       if (selectedCountry && !input.paises.includes(selectedCountry.id)) {
-        // Agrega el país solo si no está en la lista
+        // Agrega el país solo si no está en la lista de paises seleecionados
         setInput({
           ...input,
           paises: [...input.paises, selectedCountry.id],
         });
       }
     } else {
-      // En caso contrario, actualiza otros campos
+      //seteo los demas inputs
       setInput({
         ...input,
         [name]: value,
@@ -62,18 +65,17 @@ const Form = () => {
     });
   };
 
-  function disableHandler() {
-    for (let error in errors) {
-      if (errors[error] || !input[error]) {
-        return true; // Retorna true si hay errores o algún campo está vacío
-      }
-    }
-    return false; // Retorna false si no hay errores y todos los campos están llenos
-  }
+  //------------------------------------------------------------------------------------------------------
 
+  //CARGA DE PAISES
+
+  //Cuando se carga el componente, se obtienen todos los países de la BD y
+  // se almacenan en el estado de countryList. Esta lista se utiliza luego para
+  //llenar el campo de selección de países en el formulario.
   const dispatch = useDispatch();
-  const { activities, allCountries } = useSelector((state) => state);
+  const { allCountries } = useSelector((state) => state);
 
+  //Al cargar el form se trae una lista con el id y nombre de todos los paises
   useEffect(() => {
     // Cuando se carga el componente, crea la lista de países con nombres e IDs
     const countriesWithIds = allCountries.map((country) => ({
@@ -87,15 +89,27 @@ const Form = () => {
     setCountryList(countriesWithIds);
   }, [allCountries]);
 
-  const submitHandler = async (event) => {
+  //------------------------------------------------------------------------------
+
+  //ENVIO DEL FORMULARIO
+
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Lista de países con nombres e IDs
+
+  const submitHandler = (event) => {
+    // cuando realizo el submit
     event.preventDefault();
 
     if (
-      Object.values(errors).every((error) => !error) &&
-      Object.values(input).every(Boolean)
+      Object.values(errors).every((error) => !error) && // Object.values(errors) deberia ser un array
+      //vacio(no tiene errores) y devuelve false , si los hay devuelve true
+
+      Object.values(input).every(Boolean) //Si todos los campos de entrada tienen valores,
+      //every(Boolean) devuelve true. Si al menos uno de los campos de entrada no tiene valor
+      //(es decir, es falsy), every(Boolean) devuelve false
     ) {
       try {
-        await dispatch(addActivity(input));
+        dispatch(addActivity(input));
         setInput({
           nombre: "",
           dificultad: "",
@@ -112,7 +126,9 @@ const Form = () => {
       }
     }
   };
+  //-------------------------------------------------------------------------------------------------
 
+  //LIMPIEZA DEL FORMULARIO
   const clearForm = () => {
     setInput({
       nombre: "",
@@ -125,20 +141,36 @@ const Form = () => {
     setSuccessMessage("");
     setErrorMessage("");
   };
+  //-------------------------------------------------------------------
 
+  //Boton desabilitado
+
+  function disableHandler() {
+    for (let error in errors) {
+      if (errors[error] || !input[error]) {
+        return true; // Retorna true si hay errores o algún campo está vacío
+      }
+    }
+    return false; // Retorna false si no hay errores y todos los campos están llenos
+  }
+
+  //-------------------------------------------------------------------------------------------------
   return (
     <div className="form-container">
-      <div className="form-section">
-        <div>
+      <div>
+        <button className="header">
           <Link to="/home">HOME</Link>
-        </div>
-        <h2 className="form-title">Crear Actividad</h2>
+        </button>
+      </div>
+
+      <div className="form-section">
         <form onSubmit={submitHandler}>
           <div>
             <label className="form-label" htmlFor="nombre">
               Nombre de la Actividad
             </label>
             <input
+              autoComplete="off"
               className="form-input"
               name="nombre"
               value={input.nombre}
@@ -152,6 +184,7 @@ const Form = () => {
               Dificultad
             </label>
             <input
+              autoComplete="off"
               className="form-input"
               name="dificultad"
               type="range"
@@ -171,6 +204,7 @@ const Form = () => {
               Duración (horas)
             </label>
             <input
+              autoComplete="off"
               className="form-input"
               name="duracion"
               type="number"
@@ -189,6 +223,7 @@ const Form = () => {
               Temporada
             </label>
             <select
+              autoComplete="off"
               name="temporada"
               value={input.temporada}
               onChange={handleChange}
@@ -207,6 +242,7 @@ const Form = () => {
               Países pertenecientes
             </label>
             <select
+              className="form-input-paises"
               name="paises"
               multiple
               value={input.paises.map(
@@ -233,22 +269,21 @@ const Form = () => {
             Limpiar
           </button>
         </form>
+        {/* Renderiza los países seleccionados */}
+        <div className="selected-countries">
+          <h3>Países Seleccionados</h3>
+          <ul>
+            {input.paises.map((id, index) => (
+              <li key={index}>
+                {countryList.find((country) => country.id === id).name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {successMessage && <p className="success-message">{successMessage}</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      {/* Renderiza los países seleccionados */}
-      <div className="selected-countries">
-        <h3>Países Seleccionados</h3>
-        <ul>
-          {input.paises.map((id, index) => (
-            <li key={index}>
-              {countryList.find((country) => country.id === id).name}
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 };
