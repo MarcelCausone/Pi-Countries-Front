@@ -2,7 +2,7 @@ const { getCountriesById } = require("../controllers/getCountriesById");
 
 const getCountriesByIdHandler = async (req, res) => {
   try {
-    const { idPais } = req.params;
+    const { idPais } = req.params
     const country = await getCountriesById(idPais);
 
     if (!country)

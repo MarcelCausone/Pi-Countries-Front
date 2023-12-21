@@ -6,32 +6,21 @@ const createActivity = async ({
   duracion,
   temporada,
   paises,
-}) => {
-  if (
-    !nombre ||
-    !dificultad ||
-    !duracion ||
-    !temporada ||
-    !paises ||
-    paises.length === 0
-  ) {
-    throw new Error(
-      "Todos los campos son obligatorios, y debes seleccionar al menos un país."
-    );
-  }
-
+ }) => {
+  // ... validación ...
+ 
   // Crea la actividad
   const NewActivity = await Activity.create({
-    nombre,
-    dificultad,
-    duracion,
-    temporada,
+   nombre,
+   dificultad,
+   duracion,
+   temporada,
   });
-
-  // Asocia la actividad con los países seleccionados
+ 
+  // Asocia la actividad con los países
   await NewActivity.setCountries(paises);
-
+ 
   return NewActivity;
-};
+ };
 
 module.exports = { createActivity };

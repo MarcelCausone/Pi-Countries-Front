@@ -4,7 +4,7 @@ const PORT = 3001;
 
 //Sincronización de la base de datos
 conn
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(() => {
     //inicio del servidor
     server.listen(PORT, () => {

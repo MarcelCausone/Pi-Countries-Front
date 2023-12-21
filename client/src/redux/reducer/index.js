@@ -54,13 +54,15 @@ function rootReducer(state = initialState, action) {
         activities: [...state.activities, action.payload],
       };
 
-    case FILTER:
-      return {
-        ...state,
-        allCountries: state.allCountries.filter(
+      case FILTER:
+        const filteredCountries = state.allCountriesCopy.filter(
           (country) => country.continent === action.payload
-        ),
-      };
+        );
+      
+        return {
+          ...state,
+          allCountries: filteredCountries,
+        };
 
     case ACTIVITY_FILTER:
       return {

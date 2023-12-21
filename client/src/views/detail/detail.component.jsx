@@ -29,8 +29,9 @@ const Detail = () => {
           />
         )}
         <h1>{allCountriesDetail?.name}</h1>
-        <h2>ID:{allCountriesDetail?.ID}</h2>
-        <h2>Continente:{allCountriesDetail?.continent}</h2>
+        <h2>ID: {allCountriesDetail?.ID}</h2>
+        <h2>Continente: {allCountriesDetail?.continent}</h2>
+        <h2>capital: {allCountriesDetail?.capital}</h2>
         <h2>Área: {allCountriesDetail?.area} </h2>
         <h2>Población: {allCountriesDetail?.population} habitantes</h2>
         <h2>Subregión: {allCountriesDetail?.subregion}</h2>

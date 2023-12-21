@@ -27,6 +27,8 @@ const Home = () => {
     dispatch(getCountries());
     dispatch(getActivities());
   }, []);
+
+
   //--------------------------------------------------------------------------
 
   //FILTRO CON EL BACK (navBar)
@@ -111,13 +113,13 @@ const Home = () => {
 
       <div className="filters">
         <div className="sort-filter">
-          <select onChange={sortHandler}>
-            <option value="">Ordenamiento</option>
-            <option value="nameAsc">Nombre ↑</option>
-            <option value="nameDesc">Nombre ↓</option>
-            <option value="populationAsc">Población ↑</option>
-            <option value="populationDesc">Población ↓</option>
-          </select>
+        <select onChange={sortHandler}>
+ <option value="" disabled selected>Ordenamiento</option>
+ <option value="nameAsc">Nombre ↑</option>
+ <option value="nameDesc">Nombre ↓</option>
+ <option value="populationAsc">Población ↑</option>
+ <option value="populationDesc">Población ↓</option>
+</select>
           <button className="reset-button" onClick={resetHandler}>
             RESET
           </button>
@@ -125,15 +127,15 @@ const Home = () => {
 
         <div className="continent-filter">
           <select placeholder="Continent" onChange={filterHandler}>
-            <option value="">Continentes</option>
+          <option value="" disabled selected>Continentes</option>
             {[
-              "{Africa}",
-              "{Europe}",
-              "{Oceania}",
-              "{Asia}",
-              '{"South America"}',
-              '{"North America"}',
-              "{Antarctica}",
+              "Africa",
+              "Europe",
+              "Oceania",
+              "Asia",
+              'South America',
+              'North America',
+              "Antarctica",
             ].map((continent) => (
               <option key={continent} value={continent}>
                 {continent}
@@ -143,7 +145,7 @@ const Home = () => {
         </div>
         <div className="activity-filter">
           <select onChange={filterByActivityHandler}>
-            <option value="">Todas las actividades</option>
+          <option value="" disabled selected>Actividades</option>
             {activityList.map((activity) => (
               <option key={activity} value={activity}>
                 {activity}

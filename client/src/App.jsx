@@ -7,6 +7,7 @@ import LandingPage from "./views/landing/landing.component";
 function App() {
   return (
     <div>
+      
       <Routes>
         <Route exat path="/home" element={<Home />} />
         <Route path="/home/:id" element={<Detail />} />

@@ -7,7 +7,6 @@ module.exports = (sequelize) => {
       ID: {
         type: DataTypes.STRING(3),
         primaryKey: true,
-        allowNull: false,
       },
       flagImage: {
         type: DataTypes.STRING,
@@ -20,6 +19,10 @@ module.exports = (sequelize) => {
       continent: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      capital: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       subregion: {
         type: DataTypes.STRING,
