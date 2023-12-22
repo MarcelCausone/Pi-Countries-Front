@@ -1,9 +1,11 @@
 import Card from "../card/card.component";
-import "./cards.styles.css";
+import style from "./cards.module.css";
+import { useSelector } from "react-redux";
 
 const Cards = ({ nCountries }) => {
+  const countryFound = useSelector((state) => state.countryFound);
   return (
-    <div className="card-list">
+    <div className={style.cardlist}>
       {nCountries &&
         nCountries.map((country) => {
           return (
@@ -16,6 +18,12 @@ const Cards = ({ nCountries }) => {
             />
           );
         })}
+ {!countryFound && (
+ <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+   <p style={{ color: 'red', fontSize: '20px' }}>País no encontrado</p>
+ </div>
+)}
+
     </div>
   );
 };

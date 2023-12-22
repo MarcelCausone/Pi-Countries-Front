@@ -1,0 +1,63 @@
+/* En tu archivo navbar.styles.css */
+.container {
+  background-color: #333; /* Color de fondo del navbar */
+  padding: 11px; /* Espaciado interno del navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+ margin: 30px;
+
+}
+
+.searchForm {
+  display: flex;
+  gap: 7px; /* Espacio entre el campo de búsqueda y el botón */
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 6px; /* Espaciado interno del campo de búsqueda */
+  border: 1px solid #ccc; /* Borde del campo de búsqueda */
+  border-radius: 5px; /* Borde redondeado */
+  height: 38px;
+}
+
+/* En tu archivo de estilos (por ejemplo, filters.styles.css) */
+.filters {
+  display: flex;
+  gap: 11px;
+}
+
+.sortFilter,
+.continentFilter,
+.activityFilter {
+  display: flex;
+  flex-direction: center;
+  gap: 10px;
+}
+
+.selectBox {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.resetButton {
+  padding: 5px;
+  background-color: #dc3545; /* Color de fondo del botón de reset */
+  color: #fff; /* Color del texto del botón de reset */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 120px;
+}
+
+.resetButton:hover {
+  background-color: #bd2130; /* Color de fondo al pasar el mouse por encima */
+}
+
+
+

@@ -1,4 +1,4 @@
-.card-list {
+.cardlist {
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
@@ -6,9 +6,7 @@
   ); /* Distribuir tarjetas en filas, mínimo ancho de 250px */
 
   justify-items: center; /* Centra las tarjetas horizontalmente */
-  padding: 10px; /* Espacio interior */
-  max-width: 1100px; /* Ancho máximo */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-}
 
-/* Añade estilos adicionales según tus preferencias */
+  max-width: 1250px; /* Ancho máximo */
+
+}

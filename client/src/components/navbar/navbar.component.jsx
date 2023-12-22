@@ -1,27 +1,41 @@
-import "./navbar.styles.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import Filters from "../Filters/Filters";
+import style from "./navbar.module.css";
 
-const Navbar = ({ handleChange, handleSubmit }) => {
+const Navbar = ({ handleChange, handleSubmit}) => {
   return (
-    <div className="navbar-container">
-      <div className="navbar-links">
-        <Link to="/form" className="navbar-link">
-          Crear actividad
-        </Link>
+    <div className={style.container}>
+      {/* Botón para redireccionar a /form */}
+      <div>
+        <button>
+        <Link to="/form" style={{ textDecoration: 'none', color: 'inherit' }}>
+            Crear actividad
+          </Link>
+        </button>
       </div>
-      <form onSubmit={handleSubmit} className="search-form">
+ 
+      {/* Filtros */}
+      <div className={style.filtersContainer}>
+        <Filters />
+      </div>
+ 
+      {/* Formulario de búsqueda */}
+      <form onSubmit={handleSubmit} className={style.searchForm}>
         <input
           placeholder="Busca un país"
           type="search"
           onChange={handleChange}
-          className="search-input"
+          className={style.searchInput}
         />
-        <button type="submit" className="search-button">
+        <button type="submit" className={style.searchButton}>
           Buscar
         </button>
       </form>
     </div>
   );
-};
+ };
 
 export default Navbar;
+
+

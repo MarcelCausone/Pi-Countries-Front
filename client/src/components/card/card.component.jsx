@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import "./card.styles.css";
+import  style from"./card.module.css";
 
 function Card({ flagImage, name, continent, ID }) {
-  // console.log(country);
-  // const cleanContinent = continent.slice(1, -1);
 
   return (
-    <div className="card-container">
+    <div className={style.cardcontainer}>
       <Link to={`/home/${ID}`}>
         <img src={flagImage} alt={name} />
+        <div className={style.cardText}>
         <h2>{name}</h2>
-        <h2>{continent}</h2>
+        <h3>{continent}</h3>
+        </div>
+        
       </Link>
     </div>
   );

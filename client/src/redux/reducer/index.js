@@ -15,6 +15,7 @@ let initialState = {
   allCountriesCopy: [],
   allCountriesDetail: {},
   activities: [],
+  countryFound: null
 };
 
 function rootReducer(state = initialState, action) {
@@ -32,9 +33,11 @@ function rootReducer(state = initialState, action) {
       };
 
     case GET_BY_NAME:
+      const newCountryFound = action.payload.length > 0;
       return {
         ...state,
         allCountries: action.payload,
+        countryFound: newCountryFound,
       };
     case GET_BY_ID:
       return {

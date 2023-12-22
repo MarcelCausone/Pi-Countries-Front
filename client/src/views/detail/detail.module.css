@@ -1,0 +1,40 @@
+/* detail-modal.styles.css */
+
+/* Estilos para el fondo oscuro del modal */
+.modalbackground {
+  position: relative;
+
+}
+
+/* Estilos para el cuadro modal */
+.modalcontainer {
+  background: linear-gradient(to bottom, #0a0658, #000);
+  border-radius: 15px;
+  padding: 18px;
+  max-height: 100%;
+  overflow: auto;
+
+}
+
+/* Estilos para el botón de cierre */
+.modalclosebutton {
+  position: absolute;
+  top:12px;
+  right: 12px;
+  margin: 5px;
+  cursor: pointer;
+  
+}
+
+.image {
+ margin-right:85px;
+}
+
+.text {
+  font-size: 80%;
+  background: -webkit-linear-gradient(left, #e85e5e, #bbdc00);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ text-shadow: 2px 2px 3px 1px #7a2a2a;
+ padding: 0.5px;
+}
