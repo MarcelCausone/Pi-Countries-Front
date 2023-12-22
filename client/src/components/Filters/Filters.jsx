@@ -10,9 +10,8 @@ import {
   filterByActivity,
 } from "../../redux/actions";
 
-const Filters = () => {
+const Filters = ({setCurrentPage}) => {
     const dispatch = useDispatch();
-    const allCountries = useSelector((state) => state.allCountries);
     const activities = useSelector((state) => state.activities);
   
  
@@ -62,6 +61,7 @@ const Filters = () => {
     //reset
     function resetHandler() {
       dispatch(reset());
+      setCurrentPage(1)
     }
     //------------------------------------------------------------------------------
   return (
@@ -72,12 +72,12 @@ const Filters = () => {
           <div className={style.sortFilter}>
             <select onChange={sortHandler} className={style.selectBox}>
               <option value="" disabled selected>
-                Ordenamiento
+                Sort
               </option>
-              <option value="nameAsc">Nombre ↑</option>
-              <option value="nameDesc">Nombre ↓</option>
-              <option value="populationAsc">Población ↑</option>
-              <option value="populationDesc">Población ↓</option>
+              <option value="nameAsc"> Name ↑</option>
+              <option value="nameDesc"> Name ↓</option>
+              <option value="populationAsc"> Population ↑</option>
+              <option value="populationDesc"> Population ↓</option>
             </select>
           
           </div>
@@ -85,7 +85,7 @@ const Filters = () => {
           <div className={style.continentFilter}>
             <select placeholder="Continent" onChange={filterHandler} className={style.selectBox}>
               <option value="" disabled selected>
-                Continentes
+                Continents
               </option>
               {[
                 "Africa",
@@ -106,7 +106,7 @@ const Filters = () => {
           <div className={style.activityFilter}>
             <select onChange={filterByActivityHandler} className={style.selectBox}>
               <option value="" disabled selected>
-                Actividades
+                Activities
               </option>
               {activityList.map((activity) => (
                 <option key={activity} value={activity}>

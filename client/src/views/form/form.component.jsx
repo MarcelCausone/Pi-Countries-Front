@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addActivity } from "../../redux/actions/index";
 import { Link } from "react-router-dom";
 
-import "./form.styles.css";
+import style from "./form.module.css";
 
 //INICIALIZACIÓN DE ESTADOS
 
@@ -117,11 +117,11 @@ const Form = () => {
           temporada: "",
           paises: [],
         });
-        setSuccessMessage("Actividad creada exitosamente.");
+        setSuccessMessage("Activity created successfully.");
         setErrorMessage(""); // Limpia cualquier mensaje de error anterior
       } catch (error) {
         setSuccessMessage("");
-        setErrorMessage("Error al crear la actividad.");
+        setErrorMessage("Error creating activity.");
         console.error("Error al crear la actividad:", error);
       }
     }
@@ -156,36 +156,36 @@ const Form = () => {
 
   //-------------------------------------------------------------------------------------------------
   return (
-    <div className="form-container">
+    <div className={style.formcontainer}>
       <div>
-        <button className="header">
-          <Link to="/home">HOME</Link>
+        <button className={style.header}>
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit'}} >x</Link>
         </button>
       </div>
 
-      <div className="form-section">
+      <div className={style.formsection}>
         <form onSubmit={submitHandler}>
           <div>
-            <label className="form-label" htmlFor="nombre">
-              Nombre de la Actividad
+            <label className={style.formlabel} htmlFor="nombre">
+            Name of the activity
             </label>
             <input
               autoComplete="off"
-              className="form-input"
+              className={style.forminput}
               name="nombre"
               value={input.nombre}
               onChange={handleChange}
             />
-            {errors.nombre && <p className="error-message">{errors.nombre}</p>}
+            {errors.nombre && <p className={style.errormessage}>{errors.nombre}</p>}
           </div>
 
           <div>
-            <label className="form-label" htmlFor="dificultad">
-              Dificultad
+            <label className={style.formlabel} htmlFor="dificultad">
+              Difficulty
             </label>
             <input
               autoComplete="off"
-              className="form-input"
+              className={style.forminput}
               name="dificultad"
               type="range"
               min="1"
@@ -196,16 +196,16 @@ const Form = () => {
             />
             {input.dificultad}
             {errors.dificultad && (
-              <p className="error-message">{errors.dificultad}</p>
+              <p className={style.errormessage}>{errors.dificultad}</p>
             )}
           </div>
           <div>
-            <label className="form-label" htmlFor="duracion">
-              Duración (horas)
+            <label className={style.formlabel} htmlFor="duracion">
+              Duration (hours)
             </label>
             <input
               autoComplete="off"
-              className="form-input"
+              className={style.forminput}
               name="duracion"
               type="number"
               step="0.5"
@@ -215,34 +215,35 @@ const Form = () => {
               onChange={handleChange}
             />
             {errors.duracion && (
-              <p className="error-message">{errors.duracion}</p>
+              <p className={style.errormessage}>{errors.duracion}</p>
             )}
           </div>
           <div>
-            <label className="form-label" htmlFor="temporada">
-              Temporada
+            <label className={style.formlabel} htmlFor="temporada">
+              Season
             </label>
             <select
+            style={{marginBottom:"14px",textAlign:"center",padding:"1px",position:"relative"}}
               autoComplete="off"
               name="temporada"
               value={input.temporada}
               onChange={handleChange}
             >
-              <option value="verano">Verano</option>
-              <option value="invierno">Invierno</option>
-              <option value="otoño">Otoño</option>
-              <option value="primavera">Primavera</option>
+              <option value="verano">Summer</option>
+              <option value="invierno">Winter</option>
+              <option value="otoño">Autumn</option>
+              <option value="primavera">Spring</option>
             </select>
             {errors.temporada && (
-              <p className="error-message">{errors.temporada}</p>
+              <p className={style.errormessage}>{errors.temporada}</p>
             )}
           </div>
           <div>
-            <label className="form-label" htmlFor="paises">
-              Países pertenecientes
+            <label className={style.formlabel} htmlFor="paises">
+            Countries belonging
             </label>
             <select
-              className="form-input-paises"
+              className={style.forminputpaises}
               name="paises"
               multiple
               value={input.paises.map(
@@ -256,22 +257,22 @@ const Form = () => {
                 </option>
               ))}
             </select>
-            {errors.paises && <p className="error-message">{errors.paises}</p>}
+            {errors.paises && <p className={style.errormessage}>{errors.paises}</p>}
           </div>
           <button
-            className="form-button"
+            className={style.formbutton}
             disabled={disableHandler()}
             type="submit"
           >
-            Crear
+            Create
           </button>
-          <button className="form-button" type="button" onClick={clearForm}>
-            Limpiar
+          <button className={style.formbutton} type="button" onClick={clearForm}>
+            Clean
           </button>
         </form>
         {/* Renderiza los países seleccionados */}
-        <div className="selected-countries">
-          <h3>Países Seleccionados</h3>
+        <div className={style.selectedcountries}>
+          <h3>Selected Countries</h3>
           <ul>
             {input.paises.map((id, index) => (
               <li key={index}>
@@ -282,8 +283,8 @@ const Form = () => {
         </div>
       </div>
 
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {successMessage && <p className={style.successmessage}>{successMessage}</p>}
+      {errorMessage && <p className={style.errormessage}>{errorMessage}</p>}
     </div>
   );
 };

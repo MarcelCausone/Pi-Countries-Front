@@ -40,24 +40,24 @@ const Detail = () => {
       <div className={style.text}>
       <h1>{allCountriesDetail?.name}</h1>
         <h2>ID: {allCountriesDetail?.ID}</h2>
-        <h2>Continente: {allCountriesDetail?.continent}</h2>
+        <h2>Continet: {allCountriesDetail?.continent}</h2>
         <h2>Capital: {allCountriesDetail?.capital}</h2>
-        <h2>Área: {allCountriesDetail?.area} KM </h2>
-        <h2>Población: {allCountriesDetail?.population} habitantes</h2>
-        <h2>Subregión: {allCountriesDetail?.subregion}</h2>
+        <h2>Area: {allCountriesDetail?.area} KM </h2>
+        <h2>Population: {allCountriesDetail?.population} habitantes</h2>
+        <h2>Subregion: {allCountriesDetail?.subregion}</h2>
       </div>
 
         <button style={{margin:"none"}} onClick={toggleActivities}>
-          {showActivities ? "Ocultar Actividades" : "Mostrar Actividades"}
+          {showActivities ? "Hide Activities" : "Show Activities"}
         </button>
         {showActivities && (
           <>
-            <h2>Actividades:</h2>
+            <h2>Activities:</h2>
             <ul>
               {allCountriesDetail?.Activities?.map((activity) => (
                 <li key={activity.id}>
-                  {activity.nombre} (Dificultad: {activity.dificultad},
-                  Duración: {activity.duracion} hs, Temporada:{" "}
+                  {activity.nombre} (Difficulty: {activity.dificultad},
+                  Duration: {activity.duracion} hs, Season:{" "}
                   {activity.temporada})
                 </li>
               ))}

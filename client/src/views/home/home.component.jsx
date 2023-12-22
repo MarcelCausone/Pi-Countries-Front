@@ -41,6 +41,8 @@ const Home = () => {
 
     setCurrentPage(1);
   };
+
+  
   //-------------------------------------------------------------------------
 
   //PAGINADO
@@ -58,7 +60,7 @@ const Home = () => {
  
   return (
     <div>
-      <Navbar handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <Navbar  setCurrentPage={setCurrentPage} handleChange={handleChange} handleSubmit={handleSubmit}/>
       <Cards  nCountries={nCountries} />
       <Pagination
         setCurrentPage={setCurrentPage}
