@@ -43,6 +43,8 @@
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  width: 110px;
+  text-align: center;
 }
 
 .resetButton {
@@ -52,7 +54,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 120px;
+  width: 110px;
 }
 
 .resetButton:hover {

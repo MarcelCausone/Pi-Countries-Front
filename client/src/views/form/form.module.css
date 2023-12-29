@@ -17,7 +17,6 @@
   position: absolute; /* Posición absoluta en relación al contenedor padre */
   top: 0; /* Coloca el elemento en la parte superior del contenedor */
   left: 0; /* Coloca el elemento en la parte izquierda del contenedor */
-
   margin: 6px ;
 }
 

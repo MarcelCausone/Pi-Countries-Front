@@ -13,9 +13,8 @@
   padding: 18px;
   max-height: 100%;
   overflow: auto;
-
+  border: 3px solid #213547;
 }
-
 /* Estilos para el botón de cierre */
 .modalclosebutton {
   position: absolute;
@@ -38,3 +37,40 @@
  text-shadow: 2px 2px 3px 1px #7a2a2a;
  padding: 0.5px;
 }
+
+.detailContent {
+  display: flex;
+  align-items: center;
+}
+
+.activities {
+  margin-top: 20px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  border: 3px solid #213547;
+  border-radius: 15px;
+  padding: 9px;
+}
+
+.activities.active {
+  opacity: 1;
+  max-height: 1000px; 
+}
+
+.activities h2 {
+  color: #fff;
+}
+
+.activities ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activities li {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+
+
